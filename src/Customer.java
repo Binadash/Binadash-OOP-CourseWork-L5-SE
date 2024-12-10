@@ -35,6 +35,4 @@ public class Customer implements Runnable {
     public int getCustomerRetrievalRate () {
         return retrievalRate;
     }
-
-
 }
