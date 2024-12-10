@@ -1,3 +1,4 @@
+import java.util.logging.Logger;
 public class TicketPool {
     private int availableTickets;
     private int maxTicketCapacity;
@@ -20,8 +21,11 @@ public class TicketPool {
         if (availableTickets + ticketReleaseRate <= maxTicketCapacity) {
             availableTickets += ticketReleaseRate;
             Logger.system ("Added " + ticketReleaseRate + " tickets. Total tickets: " + availableTickets);
-
+        } else {
+            int ticketsToAdd = maxTicketCapacity - availableTickets;
+            availableTickets = maxTicketCapacity;
+            Logger.system ("Added " + ticketsToAdd + " tickets. Reached max capacity" + availableTickets);
         }
-
     }
+
 }
