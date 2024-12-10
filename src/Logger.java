@@ -15,4 +15,13 @@ public class Logger {
             System.out.println("Error writing to log file: " + e.getMessage());
         }
     }
+
+    public static synchronized void userInput (String input) {
+        System.out.println(input);
+        try (PrintWriter writer = new PrintWriter (new FileWriter (LOG_FILE1, true))) {
+            writer.println(input);
+        } catch (IOException e) {
+            System.out.println("Error writing to input log file: " + e.getMessage());
+        }
+    }
 }
