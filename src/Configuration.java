@@ -29,7 +29,6 @@ public class Configuration {
     }
 
     // creating teh getters
-
     public int getTotalTicketCount() {
         return totalTicketCount;
     }
@@ -46,5 +45,8 @@ public class Configuration {
         return maxTicketCapacity;
     }
 
-
+    // ticket validation process configuration
+    public boolean Validate () {
+        return totalTicketCount >0 && ticketReleaseRate >0 && customerRetrieveRate >0&& maxTicketCapacity >0;
+    }
 }
