@@ -14,4 +14,14 @@ public class TicketPool {
     public int getMaxTicketCapacity () {
         return maxTicketCapacity;
     }
+
+    public synchronized void addTicket (int ticketReleaseRate) {
+        // making sure that system will not exceed the max ticket capacity
+        if (availableTickets + ticketReleaseRate <= maxTicketCapacity) {
+            availableTickets += ticketReleaseRate;
+            Logger.system ("Added " + ticketReleaseRate + " tickets. Total tickets: " + availableTickets);
+
+        }
+
+    }
 }
