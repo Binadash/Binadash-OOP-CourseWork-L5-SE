@@ -9,5 +9,16 @@ public class Vendor implements Runnable {
         this.ticketPool = ticketPool;
     }
 
+    @Override
+    public void run () {
+        try {
+            while (ticketReleaseRate > 0) {
+                releaseTickets();
+                Thread.sleep(1000);
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
 
 }
