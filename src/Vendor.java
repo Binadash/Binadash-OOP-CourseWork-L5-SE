@@ -21,4 +21,21 @@ public class Vendor implements Runnable {
         }
     }
 
+    public void releaseTickets () {
+        if (ticketPool.getAvailableTickets() + ticketReleaseRate <= ticketPool.getMaxTicketCapacity()) {
+            ticketPool.addTicket(ticketReleaseRate);
+            Logger.system (" [ vendor " + vendorID + " ] added " + ticketReleaseRate + " tickets.");
+        }
+    }
+
+    public void decreaseRate () {
+        if (ticketReleaseRate > 0) {
+            ticketReleaseRate --;
+        }
+    }
+
+    public int getTicketReleaseRate () {
+        return ticketReleaseRate;
+    }
+
 }
