@@ -1,4 +1,3 @@
-import java.util.logging.Logger;
 public class TicketPool {
     private int availableTickets;
     private int maxTicketCapacity;
@@ -27,5 +26,15 @@ public class TicketPool {
             Logger.system ("Added " + ticketsToAdd + " tickets. Reached max capacity" + availableTickets);
         }
     }
-
+    // creating the method to remove tickets from the pool
+    public synchronized void removeTicket(int retrievalRate) {
+        if (availableTickets >= retrievalRate) {
+            availableTickets -= retrievalRate;
+            Logger.system("Removed " + retrievalRate + " tickets. Remaining tickets: " + availableTickets);
+        } else {
+            // If there are not enough tickets, take all available tickets
+            availableTickets = 0;
+            Logger.system("Removed all available tickets. Remaining tickets: " + availableTickets);
+        }
+    }
 }
