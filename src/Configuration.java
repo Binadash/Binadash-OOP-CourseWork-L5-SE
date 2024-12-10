@@ -13,6 +13,7 @@ import java.io.FileWriter;
 // importing java exception handling
 import java.io.IOException;
 
+
 // creating the class file
 public class Configuration {
     private int totalTicketCount;
