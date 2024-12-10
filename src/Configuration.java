@@ -19,4 +19,32 @@ public class Configuration {
     private int ticketReleaseRate;
     private int customerRetrieveRate;
     private int maxTicketCapacity;
+
+    public Configuration (int totalTicketCount, int ticketReleaseRate, int customerRetrieveRate, int maxTicketCapacity) {
+        this.totalTicketCount = totalTicketCount;
+        this.ticketReleaseRate = ticketReleaseRate;
+        this.customerRetrieveRate = customerRetrieveRate;
+        this.maxTicketCapacity = maxTicketCapacity;
+
+    }
+
+    // creating teh getters
+
+    public int getTotalTicketCount() {
+        return totalTicketCount;
+    }
+
+    public int getTicketReleaseRate() {
+        return ticketReleaseRate;
+    }
+
+    public int getCustomerRetrieveRate() {
+        return customerRetrieveRate;
+    }
+
+    public int getMaxTicketCapacity() {
+        return maxTicketCapacity;
+    }
+
+
 }
