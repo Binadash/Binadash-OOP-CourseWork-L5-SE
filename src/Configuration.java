@@ -39,7 +39,7 @@ public class Configuration {
     }
 
     // Static methods for JSON operations
-
+    /*
     public static Configuration loadFromJSON(String filePath) {
         try (FileReader reader = new FileReader(filePath)) {
             Gson gson = new Gson();
@@ -58,6 +58,7 @@ public class Configuration {
             System.err.println("Error saving configuration to file: " + e.getMessage());
         }
     }
+    */
 
     // toString override for better debugging
     @Override
