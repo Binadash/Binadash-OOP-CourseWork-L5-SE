@@ -15,8 +15,9 @@ public class Customer implements Runnable {
             while (retrievalRate > 0){
                 retrieveTickets();
                 Thread.sleep(1000);
-
             }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
     }
 
