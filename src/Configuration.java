@@ -14,4 +14,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 // creating the class file
-
+public class Configuration {
+    private int totalTicketCount;
+    private int ticketReleaseRate;
+    private int customerRetrieveRate;
+    private int maxTicketCapacity;
+}
