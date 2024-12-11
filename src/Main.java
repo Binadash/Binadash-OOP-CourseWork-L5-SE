@@ -8,8 +8,11 @@ public class Main{
         try {
             Logger.system("Welcome to the Ticketing System !");
 
-            int totalTickets = getPositiveInt (scanner, "Enter The Total Number Of Tickets : " , "Total Tickets");
-            int ticketReleaseRate = getPositiveInt (scanner, "Enter Ticket Release Rate : " , "Ticket Release Rate");
+            int totalTickets = getPositiveInt (scanner, "Enter The Total Number Of Tickets : " , "Total Tickets : ");
+            int ticketReleaseRate = getPositiveInt (scanner, "Enter Ticket Release Rate : " , "Ticket Release Rate : ");
+            int customerRetrievalRate = getPositiveInt (scanner, "Enter Customer Ticket Retrieval Rate : " , "Customer Ticket Retrieval Rate : ");
+            int maxTicketCapacity = getPositiveInt (scanner, "Enter Maximum Ticket Capacity : " , "Maximum Ticket Capacity : ");
+
 
 
 
