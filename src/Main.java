@@ -15,8 +15,12 @@ public class Main{
 
             Configuration config = new Configuration (totalTickets , ticketReleaseRate , customerRetrievalRate , maxTicketCapacity);
             if (!config.Validate ()) {
-                Logger.system ("Invalid Configuration");
+                Logger.system ("Invalid Configuration... Exiting The System...");
+                return;
             }
+
+            TicketPool ticketPool = new TicketPool( (config.getMaxTicketCapacity()));
+
 
 
 
