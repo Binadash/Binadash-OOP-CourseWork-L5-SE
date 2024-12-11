@@ -8,6 +8,10 @@ public class Main{
         try {
             Logger.system("Welcome to the Ticketing System !");
 
+            int totalTickets = getPositiveInt (scanner, "Enter The Total Number Of Tickets : " , "Total Tickets");
+            int ticketReleaseRate = getPositiveInt (scanner, "Enter Ticket Release Rate : " , "Ticket Release Rate");
+
+
 
         }
     }
@@ -27,5 +31,6 @@ public class Main{
                 Logger.system ("Invalid Integer. Please Enter A Positive Number : ")
             }
         }
+        return value;
     }
 }
