@@ -18,13 +18,13 @@ import java.io.IOException;
 public class Configuration {
     private int totalTicketCount;
     private int ticketReleaseRate;
-    private int customerRetrieveRate;
+    private int customerRetrievalRate;
     private int maxTicketCapacity;
 
     public Configuration (int totalTicketCount, int ticketReleaseRate, int customerRetrieveRate, int maxTicketCapacity) {
         this.totalTicketCount = totalTicketCount;
         this.ticketReleaseRate = ticketReleaseRate;
-        this.customerRetrieveRate = customerRetrieveRate;
+        this.customerRetrievalRate = customerRetrieveRate;
         this.maxTicketCapacity = maxTicketCapacity;
 
     }
@@ -38,8 +38,8 @@ public class Configuration {
         return ticketReleaseRate;
     }
 
-    public int getCustomerRetrieveRate() {
-        return customerRetrieveRate;
+    public int getCustomerRetrievalRate() {
+        return customerRetrievalRate;
     }
 
     public int getMaxTicketCapacity() {
@@ -48,6 +48,6 @@ public class Configuration {
 
     // ticket validation process configuration
     public boolean Validate () {
-        return totalTicketCount >0 && ticketReleaseRate >0 && customerRetrieveRate >0&& maxTicketCapacity >0;
+        return totalTicketCount >0 && ticketReleaseRate >0 && customerRetrievalRate >0&& maxTicketCapacity >0;
     }
 }

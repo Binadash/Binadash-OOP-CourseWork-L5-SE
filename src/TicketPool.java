@@ -31,7 +31,7 @@ public class TicketPool {
      *
      * ticketReleaseRate The number of tickets to add
      **/
-    public synchronized void addTicket (int ticketReleaseRate) {
+    public synchronized void addTickets (int ticketReleaseRate) {
 
         // Check if adding the tickets exceeds the maximum capacity
         if (availableTickets + ticketReleaseRate <= maxTicketCapacity) {

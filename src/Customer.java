@@ -1,12 +1,12 @@
 public class Customer implements Runnable {
-    private int CustomerID;
+    private int customerID;
     private int retrievalRate;
-    private int ticketPool;
+    private int ticketpool;
 
     public Customer (int customerID, int retrievalRate, int ticketPool) {
-        this.CustomerID = customerID;
+        this.customerID = customerID;
         this.retrievalRate = retrievalRate;
-        this.ticketPool = ticketPool;
+        this.ticketpool = ticketPool;
     }
 
     @Override
@@ -21,13 +21,13 @@ public class Customer implements Runnable {
         }
     }
 
-    public void retrieveTickets () {
-        if (ticketPool.getAvailableTickets () >= retrievalRate) {
-            ticketPool.removeTicket(retrievalRate);
-            Logger.system ("[ Customer " + customerID + " ] retrieved " + retrievalRate + " tickets.");
+    public void retrieveTickets() {
+        if (ticketpool.getAvailableTickets() >= retrievalRate) {
+            ticketpool.removeTicket(retrievalRate);
+            Logger.system("[Customer " + customerID + "] retrieved " + retrievalRate + " tickets.");
         }
     }
-    pubic void decreaseRate () {
+    public void decreaseRate () {
         if (retrievalRate > 0) {
             retrievalRate --;
         }

@@ -19,12 +19,45 @@ public class Main{
                 return;
             }
 
-            TicketPool ticketPool = new TicketPool( (config.getMaxTicketCapacity()));
+            TicketPool ticketPool = new TicketPool(config.getMaxTicketCapacity());
 
+            Vendor vendor1 = new Vendor (1 , config.getTicketReleaseRate (), ticketPool);
+            Vendor vendor2 = new Vendor (2 , config.getTicketReleaseRate () , ticketPool );
+            Customer customer1 = new Customer(1, config.getCustomerRetrievalRate(), ticketPool);
+            Customer customer2 = new Customer(2, config.getCustomerRetrievalRate(), ticketPool);
 
+            ExecutorService executor = Executors.newFixedThreadPool(4);
+            executor.execute (vendor1);
+            executor.execute (vendor2);
+            executor.execute (customer1);
+            executor.execute (customer2);
 
+            for (int i = 0; i <20; i++) {
+                Logger.system ("Round " + (i + 1) + " :");
+                Logger.system ("Total Tickets : " + config.getTotalTicketCount ());
+                Logger.system ("Vendor Release Rate : " + vendor1.getTicketReleaseRate () + "Tickets / Second");
+                Logger.system ("Customer Retrieval Rate : " + customer1.getCustomerRetrievalRate () + "Tickets / Seconds");
+                Logger.system ("Maximum Ticket Capacity : " + config.getMaxTicketCapacity () + "Tickets");
 
+                vendor1.releaseTickets();
+                vendor2.releaseTickets();
 
+                customer1.retrieveTickets();
+                customer2.retrieveTickets();
+
+                vendor1.decreaseRate();
+                vendor2.decreaseRate();
+                customer1.decreaseRate();
+                customer2.decreaseRate();
+
+                Thread.sleep (1000);
+            }
+
+            executor.shutdown ();
+            Logger.system ("All Tickets Have Been Sold, System Executed");
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            Logger.system ("Main Thread Has interrupted : " + e.getMessage());
         }
     }
     private static int getPositiveInt (Scanner scanner, String prompt, String label) {
@@ -40,7 +73,7 @@ public class Main{
                     Logger.system ("Please Enter a Positive Number : ");
                 }
             } catch (NumberFormatException e) {
-                Logger.system ("Invalid Integer. Please Enter A Positive Number : ")
+                Logger.system ("Invalid Integer. Please Enter A Positive Number : ");
             }
         }
         return value;
