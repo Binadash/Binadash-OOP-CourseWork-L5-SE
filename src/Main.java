@@ -13,6 +13,11 @@ public class Main{
             int customerRetrievalRate = getPositiveInt (scanner, "Enter Customer Ticket Retrieval Rate : " , "Customer Ticket Retrieval Rate : ");
             int maxTicketCapacity = getPositiveInt (scanner, "Enter Maximum Ticket Capacity : " , "Maximum Ticket Capacity : ");
 
+            Configuration config = new Configuration (totalTickets , ticketReleaseRate , customerRetrievalRate , maxTicketCapacity);
+            if (!config.Validate ()) {
+                Logger.system ("Invalid Configuration");
+            }
+
 
 
 
